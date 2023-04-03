@@ -32,6 +32,8 @@ def ping(ip, v):
     response = os.popen(ping)
     list = response.readlines()
     for line in list:
-        if (line.count("ttl")):
+        if (line.count("ttl") or line.count("TTL")):
             print(str(ip) + " is UP")
             break
+    if v:
+        print(str(ip) + " is DOWN")
